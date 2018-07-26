@@ -14,6 +14,10 @@ jobs:
           name: "Install dependencies"
           command: |
             npm install
+      - run:
+          name: "Build local"
+          command: |
+            npm run predeploy
       - save_cache:
           paths:
             - node_modules
@@ -27,7 +31,7 @@ jobs:
       - run:
           name: Deploy to github page
           command: |
-              bash .circleci/deploy.sh
+              bash ./deploy.sh
 
 workflows:
   version: 2
