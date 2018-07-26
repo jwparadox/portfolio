@@ -24,8 +24,8 @@ jobs:
           key: node-dependencies-{{ checksum "package.json" }}
 
   deploy:
-    machine:
-      enabled: true
+    docker:
+      - image: circleci/node:8.9
     working_directory: ~/circleci-workflow
     steps:
       - run:

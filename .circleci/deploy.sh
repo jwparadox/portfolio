@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x -e
+set -ex
 
 mkdir dist-local
 cd dist-local
