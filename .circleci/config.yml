@@ -22,6 +22,9 @@ jobs:
           paths:
             - node_modules
           key: node-dependencies-{{ checksum "package.json" }}
+      - add_ssh_keys:
+          fingerprints:
+            - "e4:25:0f:59:3d:c9:0d:9c:d6:06:ee:4c:d4:97:ec:92"
       - run:
           name: Deploy to github page
           command: npm run deploy -- --repo $DEST_URL
