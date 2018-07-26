@@ -22,24 +22,6 @@ jobs:
           paths:
             - node_modules
           key: node-dependencies-{{ checksum "package.json" }}
-
-  deploy:
-    docker:
-      - image: circleci/node:8.9
-    working_directory: ~/circleci-workflow
-    steps:
       - run:
           name: Deploy to github page
           command: npm run deploy -- --repo $DEST_URL
-
-workflows:
-  version: 2
-  build-and-deploy:
-    jobs:
-      - build
-      - deploy:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
