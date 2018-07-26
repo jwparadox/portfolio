@@ -30,7 +30,7 @@ jobs:
     steps:
       - run:
           name: Deploy to github page
-          command: .circleci/deploy.sh
+          command: npm run deploy -- --repo $DEST_URL
 
 workflows:
   version: 2
