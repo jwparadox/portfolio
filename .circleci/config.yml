@@ -1,0 +1,42 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.9
+    working_directory: ~/circleci-workflow
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - node-dependencies-{{ checksum "package.json" }}
+          - node-dependencies-
+      - run: 
+          name: "Install dependencies"
+          command: |
+            npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: node-dependencies-{{ checksum "package.json" }}
+
+  deploy:
+    machine:
+      enabled: true
+    working_directory: ~/circleci-workflow
+    steps:
+      - run:
+          name: Deploy to github page
+          command: |
+              bash .circleci/deploy.sh
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
