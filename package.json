@@ -1,7 +1,7 @@
 {
     "name": "sylvia-portfolio",
     "version": "1.0.0",
-    "main": "index.js",
+    "private": true,
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
@@ -10,24 +10,16 @@
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/jwparadox/portfolio.git"
-    },
-    "keywords": [
-        "sylvia"
-    ],
     "author": "Sylvia Wang",
     "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/jwparadox/portfolio/issues"
-    },
     "homepage": "https://jwparadox.github.io/",
     "devDependencies": {
         "gh-pages": "^1.2.0",
         "react-scripts": "^1.1.4"
     },
     "dependencies": {
-        "react": "^16.4.1"
+        "react": "^16.4.1",
+        "react-dom": "^16.4.1",
+        "react-router-dom": "^4.3.1"
     }
 }
