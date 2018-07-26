@@ -1,4 +1,4 @@
-#!/user/bin/env bash
+#!/bin/sh
 set -x -e
 
 mkdir dist-local
